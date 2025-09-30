@@ -1,0 +1,9 @@
+- name: Copy playbook test
+  hosts: localhost
+  tasks:
+    - name: Copy file
+      ansible.builtin.copy:
+        dest: hello
+        content: world
+        mode: '0777'
+

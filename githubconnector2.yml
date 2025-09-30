@@ -1,0 +1,16 @@
+- name: Clone GitHub repository
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Ensure git is installed
+      ansible.builtin.apt:
+        name: git
+        state: present
+        update_cache: yes
+
+    - name: Clone my GitHub repo
+      ansible.builtin.git:
+        repo: 'https://github.com/El-Mansouri-Anass/Application-Management'
+        dest: /home/ansible/myproject2
+        version: main
+        update: yes

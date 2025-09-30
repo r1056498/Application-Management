@@ -1,0 +1,25 @@
+- name: Install nginx
+  hosts: all
+  become: true
+  tasks:
+    - name: Install nginx
+      ansible.builtin.apt:
+       name: nginx
+
+- name: Copy playbook test
+  hosts: localhost
+  tasks:
+  name: Copy file
+  ansible.builtin.copy:
+    dest: hello
+    content: world
+    mode: '0777'
+
+- name: Date playbook test
+  hosts: localhost
+  tasks:
+    - name: Check date
+      ansible.builtin.command:
+        cmd: date
+      register: date_output
+      changed_when: false

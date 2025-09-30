@@ -1,0 +1,12 @@
+- name: copy playbook test
+  hosts: localhost
+  tasks:
+    - name: copy file
+      ansible.builtin.copy:
+        dest: hello
+        content: world
+        mode: '0777'
+    - name: Check date
+      ansible.builtin.command:
+        cmd: date
+      register: date_output

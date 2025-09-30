@@ -1,0 +1,9 @@
+- name: copy and date playbook test
+  hosts: remotehosts
+  become: true
+  tasks:
+    - name: copy file
+      ansible.builtin.copy:
+        dest: hello
+        content: world
+        mode: '0777'
